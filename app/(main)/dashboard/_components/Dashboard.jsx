@@ -1,11 +1,10 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
 import { Factory, FileText, Icon, PenBox, Route } from "lucide-react";
 import Suggesstion from "@/components/Suggesstion";
+import Link from 'next/link';
 export default function DashboardPage({ latestImprovementTip }) {
   console.log("DashboardClientComponent received latestImprovementTip:", latestImprovementTip);
 
@@ -30,7 +29,9 @@ export default function DashboardPage({ latestImprovementTip }) {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">Create AI-powered resumes based on your skills.</p>
+            <Link href="/resume">
             <Button className="mt-4 w-full">Start Building</Button>
+            </Link>
           </CardContent>
         </Card>
 
@@ -42,7 +43,9 @@ export default function DashboardPage({ latestImprovementTip }) {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">Instantly generate cover letters tailored to your jobs.</p>
+            <Link href="/ai-cover-letter">
             <Button className="mt-4 w-full" >Write Cover Letter</Button>
+            </Link>
           </CardContent>
         </Card>
 
@@ -54,7 +57,9 @@ export default function DashboardPage({ latestImprovementTip }) {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">Explore real-time career trends and skills in demand.</p>
+            <Link href="/insights">
             <Button className="mt-4 w-full" >View Insights</Button>
+            </Link>
           </CardContent>
         </Card>
 
@@ -67,7 +72,9 @@ export default function DashboardPage({ latestImprovementTip }) {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">Follow customized roadmaps based on your goals.</p>
+            <Link href="/road-map">
             <Button className="mt-4 w-full" >Explore Roadmaps</Button>
+            </Link>
           </CardContent>
         </Card>
       </div>
