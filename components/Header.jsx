@@ -104,7 +104,7 @@ const Header = async () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/interview" className="flex items-center gap-2">
+                  <Link href="/road-map" className="flex items-center gap-2">
                     <Route className="h-4 w-4" />
                     Learning Roadmaps
                   </Link>
