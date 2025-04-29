@@ -63,13 +63,13 @@ export default function QuizList({ assessments }) {
                     </div>
                   </CardDescription>
                 </CardHeader>
-                {assessment.improvementTip && (
+                {/* {assessment.improvementTip && (
                   <CardContent>
                     <p className="text-sm text-muted-foreground">
                       {assessment.improvementTip}
                     </p>
                   </CardContent>
-                )}
+                )} */}
               </Card>
             ))}
           </div>

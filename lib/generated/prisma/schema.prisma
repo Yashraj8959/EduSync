@@ -32,9 +32,9 @@ model Assessment {
   quizScore      Float
   questions      Json[]
   category       String
-  improvementTip String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+  improvementTip Json?
   user           User     @relation(fields: [userId], references: [id])
 
   @@index([userId])
