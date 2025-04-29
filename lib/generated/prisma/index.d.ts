@@ -2594,7 +2594,6 @@ export namespace Prisma {
     userId: string | null
     quizScore: number | null
     category: string | null
-    improvementTip: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2604,7 +2603,6 @@ export namespace Prisma {
     userId: string | null
     quizScore: number | null
     category: string | null
-    improvementTip: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2615,9 +2613,9 @@ export namespace Prisma {
     quizScore: number
     questions: number
     category: number
-    improvementTip: number
     createdAt: number
     updatedAt: number
+    improvementTip: number
     _all: number
   }
 
@@ -2635,7 +2633,6 @@ export namespace Prisma {
     userId?: true
     quizScore?: true
     category?: true
-    improvementTip?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2645,7 +2642,6 @@ export namespace Prisma {
     userId?: true
     quizScore?: true
     category?: true
-    improvementTip?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2656,9 +2652,9 @@ export namespace Prisma {
     quizScore?: true
     questions?: true
     category?: true
-    improvementTip?: true
     createdAt?: true
     updatedAt?: true
+    improvementTip?: true
     _all?: true
   }
 
@@ -2754,9 +2750,9 @@ export namespace Prisma {
     quizScore: number
     questions: JsonValue[]
     category: string
-    improvementTip: string | null
     createdAt: Date
     updatedAt: Date
+    improvementTip: JsonValue | null
     _count: AssessmentCountAggregateOutputType | null
     _avg: AssessmentAvgAggregateOutputType | null
     _sum: AssessmentSumAggregateOutputType | null
@@ -2784,9 +2780,9 @@ export namespace Prisma {
     quizScore?: boolean
     questions?: boolean
     category?: boolean
-    improvementTip?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    improvementTip?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["assessment"]>
 
@@ -2796,9 +2792,9 @@ export namespace Prisma {
     quizScore?: boolean
     questions?: boolean
     category?: boolean
-    improvementTip?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    improvementTip?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["assessment"]>
 
@@ -2808,9 +2804,9 @@ export namespace Prisma {
     quizScore?: boolean
     questions?: boolean
     category?: boolean
-    improvementTip?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    improvementTip?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["assessment"]>
 
@@ -2820,12 +2816,12 @@ export namespace Prisma {
     quizScore?: boolean
     questions?: boolean
     category?: boolean
-    improvementTip?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    improvementTip?: boolean
   }
 
-  export type AssessmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "quizScore" | "questions" | "category" | "improvementTip" | "createdAt" | "updatedAt", ExtArgs["result"]["assessment"]>
+  export type AssessmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "quizScore" | "questions" | "category" | "createdAt" | "updatedAt" | "improvementTip", ExtArgs["result"]["assessment"]>
   export type AssessmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2847,9 +2843,9 @@ export namespace Prisma {
       quizScore: number
       questions: Prisma.JsonValue[]
       category: string
-      improvementTip: string | null
       createdAt: Date
       updatedAt: Date
+      improvementTip: Prisma.JsonValue | null
     }, ExtArgs["result"]["assessment"]>
     composites: {}
   }
@@ -3279,9 +3275,9 @@ export namespace Prisma {
     readonly quizScore: FieldRef<"Assessment", 'Float'>
     readonly questions: FieldRef<"Assessment", 'Json[]'>
     readonly category: FieldRef<"Assessment", 'String'>
-    readonly improvementTip: FieldRef<"Assessment", 'String'>
     readonly createdAt: FieldRef<"Assessment", 'DateTime'>
     readonly updatedAt: FieldRef<"Assessment", 'DateTime'>
+    readonly improvementTip: FieldRef<"Assessment", 'Json'>
   }
     
 
@@ -7127,9 +7123,9 @@ export namespace Prisma {
     quizScore: 'quizScore',
     questions: 'questions',
     category: 'category',
-    improvementTip: 'improvementTip',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    improvementTip: 'improvementTip'
   };
 
   export type AssessmentScalarFieldEnum = (typeof AssessmentScalarFieldEnum)[keyof typeof AssessmentScalarFieldEnum]
@@ -7188,6 +7184,14 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
   export const QueryMode: {
     default: 'default',
     insensitive: 'insensitive'
@@ -7202,6 +7206,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -7276,6 +7289,13 @@ export namespace Prisma {
    * Reference to a field of type 'Json'
    */
   export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
   /**
    * Deep Input Types
@@ -7387,9 +7407,9 @@ export namespace Prisma {
     quizScore?: FloatFilter<"Assessment"> | number
     questions?: JsonNullableListFilter<"Assessment">
     category?: StringFilter<"Assessment"> | string
-    improvementTip?: StringNullableFilter<"Assessment"> | string | null
     createdAt?: DateTimeFilter<"Assessment"> | Date | string
     updatedAt?: DateTimeFilter<"Assessment"> | Date | string
+    improvementTip?: JsonNullableFilter<"Assessment">
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
@@ -7399,9 +7419,9 @@ export namespace Prisma {
     quizScore?: SortOrder
     questions?: SortOrder
     category?: SortOrder
-    improvementTip?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    improvementTip?: SortOrderInput | SortOrder
     user?: UserOrderByWithRelationInput
   }
 
@@ -7414,9 +7434,9 @@ export namespace Prisma {
     quizScore?: FloatFilter<"Assessment"> | number
     questions?: JsonNullableListFilter<"Assessment">
     category?: StringFilter<"Assessment"> | string
-    improvementTip?: StringNullableFilter<"Assessment"> | string | null
     createdAt?: DateTimeFilter<"Assessment"> | Date | string
     updatedAt?: DateTimeFilter<"Assessment"> | Date | string
+    improvementTip?: JsonNullableFilter<"Assessment">
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
@@ -7426,9 +7446,9 @@ export namespace Prisma {
     quizScore?: SortOrder
     questions?: SortOrder
     category?: SortOrder
-    improvementTip?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    improvementTip?: SortOrderInput | SortOrder
     _count?: AssessmentCountOrderByAggregateInput
     _avg?: AssessmentAvgOrderByAggregateInput
     _max?: AssessmentMaxOrderByAggregateInput
@@ -7445,9 +7465,9 @@ export namespace Prisma {
     quizScore?: FloatWithAggregatesFilter<"Assessment"> | number
     questions?: JsonNullableListFilter<"Assessment">
     category?: StringWithAggregatesFilter<"Assessment"> | string
-    improvementTip?: StringNullableWithAggregatesFilter<"Assessment"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Assessment"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Assessment"> | Date | string
+    improvementTip?: JsonNullableWithAggregatesFilter<"Assessment">
   }
 
   export type ResumeWhereInput = {
@@ -7793,9 +7813,9 @@ export namespace Prisma {
     quizScore: number
     questions?: AssessmentCreatequestionsInput | InputJsonValue[]
     category: string
-    improvementTip?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
     user: UserCreateNestedOneWithoutAssessmentsInput
   }
 
@@ -7805,9 +7825,9 @@ export namespace Prisma {
     quizScore: number
     questions?: AssessmentCreatequestionsInput | InputJsonValue[]
     category: string
-    improvementTip?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AssessmentUpdateInput = {
@@ -7815,9 +7835,9 @@ export namespace Prisma {
     quizScore?: FloatFieldUpdateOperationsInput | number
     questions?: AssessmentUpdatequestionsInput | InputJsonValue[]
     category?: StringFieldUpdateOperationsInput | string
-    improvementTip?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
     user?: UserUpdateOneRequiredWithoutAssessmentsNestedInput
   }
 
@@ -7827,9 +7847,9 @@ export namespace Prisma {
     quizScore?: FloatFieldUpdateOperationsInput | number
     questions?: AssessmentUpdatequestionsInput | InputJsonValue[]
     category?: StringFieldUpdateOperationsInput | string
-    improvementTip?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AssessmentCreateManyInput = {
@@ -7838,9 +7858,9 @@ export namespace Prisma {
     quizScore: number
     questions?: AssessmentCreatequestionsInput | InputJsonValue[]
     category: string
-    improvementTip?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AssessmentUpdateManyMutationInput = {
@@ -7848,9 +7868,9 @@ export namespace Prisma {
     quizScore?: FloatFieldUpdateOperationsInput | number
     questions?: AssessmentUpdatequestionsInput | InputJsonValue[]
     category?: StringFieldUpdateOperationsInput | string
-    improvementTip?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AssessmentUncheckedUpdateManyInput = {
@@ -7859,9 +7879,9 @@ export namespace Prisma {
     quizScore?: FloatFieldUpdateOperationsInput | number
     questions?: AssessmentUpdatequestionsInput | InputJsonValue[]
     category?: StringFieldUpdateOperationsInput | string
-    improvementTip?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ResumeCreateInput = {
@@ -8351,6 +8371,29 @@ export namespace Prisma {
     hasSome?: InputJsonValue[] | ListJsonFieldRefInput<$PrismaModel>
     isEmpty?: boolean
   }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
@@ -8363,9 +8406,9 @@ export namespace Prisma {
     quizScore?: SortOrder
     questions?: SortOrder
     category?: SortOrder
-    improvementTip?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    improvementTip?: SortOrder
   }
 
   export type AssessmentAvgOrderByAggregateInput = {
@@ -8377,7 +8420,6 @@ export namespace Prisma {
     userId?: SortOrder
     quizScore?: SortOrder
     category?: SortOrder
-    improvementTip?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -8387,7 +8429,6 @@ export namespace Prisma {
     userId?: SortOrder
     quizScore?: SortOrder
     category?: SortOrder
-    improvementTip?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -8410,6 +8451,32 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
   export type FloatNullableFilter<$PrismaModel = never> = {
@@ -9033,6 +9100,29 @@ export namespace Prisma {
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
   }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
@@ -9055,9 +9145,9 @@ export namespace Prisma {
     quizScore: number
     questions?: AssessmentCreatequestionsInput | InputJsonValue[]
     category: string
-    improvementTip?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AssessmentUncheckedCreateWithoutUserInput = {
@@ -9065,9 +9155,9 @@ export namespace Prisma {
     quizScore: number
     questions?: AssessmentCreatequestionsInput | InputJsonValue[]
     category: string
-    improvementTip?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AssessmentCreateOrConnectWithoutUserInput = {
@@ -9193,9 +9283,9 @@ export namespace Prisma {
     quizScore?: FloatFilter<"Assessment"> | number
     questions?: JsonNullableListFilter<"Assessment">
     category?: StringFilter<"Assessment"> | string
-    improvementTip?: StringNullableFilter<"Assessment"> | string | null
     createdAt?: DateTimeFilter<"Assessment"> | Date | string
     updatedAt?: DateTimeFilter<"Assessment"> | Date | string
+    improvementTip?: JsonNullableFilter<"Assessment">
   }
 
   export type CoverLetterUpsertWithWhereUniqueWithoutUserInput = {
@@ -9617,9 +9707,9 @@ export namespace Prisma {
     quizScore: number
     questions?: AssessmentCreatequestionsInput | InputJsonValue[]
     category: string
-    improvementTip?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type CoverLetterCreateManyUserInput = {
@@ -9638,9 +9728,9 @@ export namespace Prisma {
     quizScore?: FloatFieldUpdateOperationsInput | number
     questions?: AssessmentUpdatequestionsInput | InputJsonValue[]
     category?: StringFieldUpdateOperationsInput | string
-    improvementTip?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AssessmentUncheckedUpdateWithoutUserInput = {
@@ -9648,9 +9738,9 @@ export namespace Prisma {
     quizScore?: FloatFieldUpdateOperationsInput | number
     questions?: AssessmentUpdatequestionsInput | InputJsonValue[]
     category?: StringFieldUpdateOperationsInput | string
-    improvementTip?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AssessmentUncheckedUpdateManyWithoutUserInput = {
@@ -9658,9 +9748,9 @@ export namespace Prisma {
     quizScore?: FloatFieldUpdateOperationsInput | number
     questions?: AssessmentUpdatequestionsInput | InputJsonValue[]
     category?: StringFieldUpdateOperationsInput | string
-    improvementTip?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    improvementTip?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type CoverLetterUpdateWithoutUserInput = {

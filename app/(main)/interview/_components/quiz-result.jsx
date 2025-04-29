@@ -27,12 +27,12 @@ export default function QuizResult({
         </div>
 
         {/* Improvement Tip */}
-        {result.improvementTip && (
+        {/* {result.improvementTip && (
           <div className="bg-muted p-4 rounded-lg">
             <p className="font-medium">Improvement Tip:</p>
             <p className="text-muted-foreground">{result.improvementTip}</p>
           </div>
-        )}
+        )} */}
 
         {/* Questions Review */}
         <div className="space-y-4">

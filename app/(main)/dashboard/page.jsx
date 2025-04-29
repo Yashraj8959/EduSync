@@ -1,25 +1,18 @@
-import { getIndustryInsights } from "@/actions/dashboard";
-import { getUserOnboardingStatus } from "@/actions/user";
-import { redirect } from "next/navigation";
+
 import Dashboard from "./_components/Dashboard";
-import { getAssessments } from "@/actions/interview";
+import { generateAdaptiveSuggestion } from "@/actions/generateAdaptiveSuggestion";
 
-const IndustryInsightsPage = async () => {
-    const {isOnboarded} = await getUserOnboardingStatus();
-    const assessments = await getAssessments();
+const DashboardPage = async () => {
+    const adaptiveTip = await generateAdaptiveSuggestion();
+    console.log("page.jsx - fetched adaptiveTip:", adaptiveTip);
 
-    // if(!isOnboarded){
-    //     redirect("/onboarding");
-    //     return null; 
-    // }
-    // first user is onboarded then get the industryInsights
-    // const insights = await getIndustryInsights();
-    return (
-        <div className="container mx-auto"> 
-            {/* <Dashboard insights={insights} assessments={assessments} /> */}
-            <Dashboard />
-        </div>
+    return (<>
+        <div className="w-full grid-background"></div>
+        {/* <Dashboard insights={insights} assessments={assessments} /> */}
+        <Dashboard latestImprovementTip={adaptiveTip} />
+        </>
+
     );
 };
 
-export default IndustryInsightsPage;
+export default DashboardPage;

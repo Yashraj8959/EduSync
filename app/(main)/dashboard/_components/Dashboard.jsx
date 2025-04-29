@@ -4,14 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-
-export default function DashboardPage() {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setProgress(70), 500); // example progress
-    return () => clearTimeout(timer);
-  }, []);
+import { Factory, FileText, Icon, PenBox, Route } from "lucide-react";
+import Suggesstion from "@/components/Suggesstion";
+export default function DashboardPage({ latestImprovementTip }) {
+  console.log("DashboardClientComponent received latestImprovementTip:", latestImprovementTip);
 
   return (
     <div className="p-6 space-y-6">
@@ -24,90 +20,59 @@ export default function DashboardPage() {
       {/* Cards Section */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {/* Resume Builder */}
-        <Card>
-          <CardHeader>
+        <Card className="glass-card bg-white/5 border border-white/10 hover:border-purple-600  transition-all duration-300 flex flex-col items-center text-center p-6 rounded-2xl ">
+        {/* <div className="rounded-full bg-gradient-to-br from-purple-600 to-purple-400 p-4 w-16 h-16 flex items-center justify-center mb-6">
+          <Icon className="text-white" size={32} />
+        </div> */}
+          <CardHeader className={"flex items-center text-center gap-4 "}>
+          <FileText className="h-8 w-8 text-red-500" />
             <CardTitle>Resume Builder</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">Create AI-powered resumes based on your skills.</p>
-            <Button className="mt-4 w-full" variant="outline">Start Building</Button>
+            <Button className="mt-4 w-full">Start Building</Button>
           </CardContent>
         </Card>
 
         {/* Cover Letter Builder */}
-        <Card>
-          <CardHeader>
+        <Card className="glass-card bg-white/5 border border-white/10 hover:border-purple-600  transition-all duration-300 flex flex-col items-center text-center p-6 rounded-2xl ">
+          <CardHeader className={"flex items-center text-center gap-4 "}>
+          <PenBox className="h-8 w-8 text-blue-500" />
             <CardTitle>Cover Letter Builder</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">Instantly generate cover letters tailored to your jobs.</p>
-            <Button className="mt-4 w-full" variant="outline">Write Cover Letter</Button>
+            <Button className="mt-4 w-full" >Write Cover Letter</Button>
           </CardContent>
         </Card>
 
         {/* Industry Insights */}
-        <Card>
-          <CardHeader>
+        <Card className="glass-card bg-white/5 border border-white/10 hover:border-purple-600  transition-all duration-300 flex flex-col items-center text-center p-6 rounded-2xl ">
+          <CardHeader className={"flex items-center text-center gap-4 "}>
+          <Factory className="h-8 w-8 text-emerald-500" />
             <CardTitle>Industry Insights</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">Explore real-time career trends and skills in demand.</p>
-            <Button className="mt-4 w-full" variant="outline">View Insights</Button>
+            <Button className="mt-4 w-full" >View Insights</Button>
           </CardContent>
         </Card>
 
         {/* Roadmaps */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Learning Roadmaps</CardTitle>
+        <Card className="glass-card bg-white/5 border border-white/10 hover:border-purple-600  transition-all duration-300 flex flex-col items-center text-center p-6 rounded-2xl ">
+          <CardHeader className={"flex items-center text-center gap-4 "}>
+          <Route className="h-8 w-8 text-amber-500" />
+          <span><CardTitle>Learning Roadmaps</CardTitle></span>
+            
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">Follow customized roadmaps based on your goals.</p>
-            <Button className="mt-4 w-full" variant="outline">Explore Roadmaps</Button>
+            <Button className="mt-4 w-full" >Explore Roadmaps</Button>
           </CardContent>
         </Card>
       </div>
 
-      {/* Progress Section */}
-      <div className="space-y-2">
-        <h2 className="text-2xl font-bold tracking-tight">Your Progress</h2>
-        <p className="text-muted-foreground text-sm">Adaptive learning based on your performance.</p>
-        <Progress value={progress} className="h-4" />
-      </div>
-
-      {/* Customized Recommendations */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {/* Example recommendations */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Recommended: Advanced React</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">Based on your high scores in frontend quizzes.</p>
-            <Button className="mt-4 w-full" variant="default">Continue Learning</Button>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Recommended: System Design Basics</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">Level up your backend and architecture skills.</p>
-            <Button className="mt-4 w-full" variant="default">Start Module</Button>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Recommended: AI for Beginners</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">AI foundation tailored from your roadmap goals.</p>
-            <Button className="mt-4 w-full" variant="default">Learn AI</Button>
-          </CardContent>
-        </Card>
-      </div>
+      <Suggesstion tipData={latestImprovementTip} />
 
     </div>
   );
