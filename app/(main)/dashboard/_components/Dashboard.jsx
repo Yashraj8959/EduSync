@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Factory, FileText, Icon, PenBox, Route } from "lucide-react";
+import { Factory, FileText, GraduationCap, Icon, PenBox, Route } from "lucide-react";
 import Suggesstion from "@/components/Suggesstion";
 import Link from 'next/link';
 export default function DashboardPage({ latestImprovementTip }) {
@@ -35,20 +35,6 @@ export default function DashboardPage({ latestImprovementTip }) {
           </CardContent>
         </Card>
 
-        {/* Cover Letter Builder */}
-        <Card className="glass-card bg-white/5 border border-white/10 hover:border-purple-600  transition-all duration-300 flex flex-col items-center text-center p-6 rounded-2xl ">
-          <CardHeader className={"flex items-center text-center gap-4 "}>
-          <PenBox className="h-8 w-8 text-blue-500" />
-            <CardTitle>Cover Letter Builder</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">Instantly generate cover letters tailored to your jobs.</p>
-            <Link href="/ai-cover-letter">
-            <Button className="mt-4 w-full" >Write Cover Letter</Button>
-            </Link>
-          </CardContent>
-        </Card>
-
         {/* Industry Insights */}
         <Card className="glass-card bg-white/5 border border-white/10 hover:border-purple-600  transition-all duration-300 flex flex-col items-center text-center p-6 rounded-2xl ">
           <CardHeader className={"flex items-center text-center gap-4 "}>
@@ -74,6 +60,20 @@ export default function DashboardPage({ latestImprovementTip }) {
             <p className="text-sm text-muted-foreground">Follow customized roadmaps based on your goals.</p>
             <Link href="/road-map">
             <Button className="mt-4 w-full" >Explore Roadmaps</Button>
+            </Link>
+          </CardContent>
+        </Card>
+          
+        {/* Interview Preparation */}
+        <Card className="glass-card bg-white/5 border border-white/10 hover:border-purple-600  transition-all duration-300 flex flex-col items-center text-center p-6 rounded-2xl ">
+          <CardHeader className={"flex items-center text-center gap-4 "}>
+          <GraduationCap className="h-8 w-8 text-blue-500" />
+            <CardTitle>Mock Interviews</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">Get fluent in Realtime Interviews with AI .</p>
+            <Link href="https://prepwise-sigma-vert.vercel.app">
+            <Button className="mt-4 w-full" >Schedule Interview</Button>
             </Link>
           </CardContent>
         </Card>
