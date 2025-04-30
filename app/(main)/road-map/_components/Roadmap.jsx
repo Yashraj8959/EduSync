@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaCheckCircle, FaRegCircle } from "react-icons/fa"; // Importing react-icons
@@ -6,52 +8,13 @@ const RoadmapComponent = ({ roadmapData }) => {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const containerRef = useRef(null);
   const cardRefs = useRef([]);
-  const [lines, setLines] = useState([]);
 
   const toggleExpand = (index) => {
     setExpandedIndex(index === expandedIndex ? null : index);
   };
 
   useEffect(() => {
-    const newLines = [];
-    const container = containerRef.current;
-    if (!container) return;
-
-    const centerX = container.offsetWidth / 2;
-
-    cardRefs.current.forEach((card, index) => {
-      if (!card) return;
-
-      const cardTop = card.offsetTop;
-      const cardLeft = card.offsetLeft;
-      const cardWidth = card.offsetWidth;
-      const cardHeight = card.offsetHeight;
-
-      const cardCenterY = cardTop + cardHeight / 2;
-      const cardCenterX = cardLeft + cardWidth / 2;
-
-      const isLeft = index % 2 === 0; // Check if it's a left card
-
-      if (isLeft) {
-        // From the right border of the left card to the center vertical line
-        newLines.push({
-          startX: cardLeft + cardWidth, // Right edge of the left card
-          startY: cardCenterY,
-          endX: centerX,
-          endY: cardCenterY,
-        });
-      } else {
-        // From the left border of the right card to the center vertical line
-        newLines.push({
-          startX: cardLeft, // Left edge of the right card
-          startY: cardCenterY,
-          endX: centerX,
-          endY: cardCenterY,
-        });
-      }
-    });
-
-    setLines(newLines);
+    // No need to calculate lines anymore
   }, [expandedIndex, roadmapData]);
 
   if (!roadmapData || roadmapData.length === 0) {
@@ -66,12 +29,12 @@ const RoadmapComponent = ({ roadmapData }) => {
     <div
       ref={containerRef}
       id="roadmap-container"
-      className="relative w-full min-h-screen py-20"
+      className="relative w-full min-h-screen py-20 overflow-hidden"
     >
-      {/* SVG for lines */}
+      {/* SVG for the vertical line */}
       <svg className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none sm:block hidden">
         {/* Circle at the top of the vertical line */}
-        <circle cx="50%" cy="10" r="10" fill="#6366f1"  />
+        <circle cx="50%" cy="10" r="10" fill="#6366f1" />
         {/* Main vertical line */}
         <line
           x1="50%"
@@ -80,7 +43,7 @@ const RoadmapComponent = ({ roadmapData }) => {
           y2="100%"
           stroke="#6366f1"
           strokeWidth="2"
-          className="animate-pulse neon-effect" 
+          className="animate-pulse neon-effect"
         />
       </svg>
 
@@ -88,12 +51,15 @@ const RoadmapComponent = ({ roadmapData }) => {
         {roadmapData.map((step, index) => {
           const isLeft = index % 2 === 0;
           const isExpanded = expandedIndex === index;
+          const cardAlignmentClass = isLeft
+            ? "sm:mr-auto sm:ml-[calc(50% - 1px)]"
+            : "sm:ml-auto sm:mr-[calc(50% - 1px)]";
 
           return (
             <motion.div
               key={index}
               ref={(el) => (cardRefs.current[index] = el)}
-              className={`w-full flex relative ${isLeft ? "sm:ml-[15vw]" : "sm:ml-[37.5vw]"} `}
+              className={`w-full flex justify-center relative ${cardAlignmentClass}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
@@ -101,9 +67,9 @@ const RoadmapComponent = ({ roadmapData }) => {
             >
               <motion.div
                 onClick={() => toggleExpand(index)}
-                className="w-full sm:w-96 p-6 rounded-2xl  border hover:shadow-lg hover:shadow-indigo-800 border-indigo-500 text-white cursor-pointer transition-all"
-                
-                whileTap={{ scale: 0.80 }}
+                className="sm:w-96 p-6 bg-accent rounded-2xl border hover:shadow-lg hover:shadow-indigo-800 border-indigo-500 text-white cursor-pointer transition-all"
+                style={{ maxWidth: '400px' }}
+                whileTap={{ scale: 0.95 }}
               >
                 <h2 className="text-xl font-bold mb-2 text-center">
                   {step.name}
@@ -116,8 +82,8 @@ const RoadmapComponent = ({ roadmapData }) => {
                     transition={{ duration: 0.3 }}
                   >
                     <motion.button
-                      whileTap={{ scale: 0.80 }}
-                      className="mt-2 border border-indigo-500  px-4 py-1 rounded-md text-indigo-400 hover:bg-indigo-800 hover:text-white transition"
+                      whileTap={{ scale: 0.95 }}
+                      className="mt-2 border border-indigo-500 px-4 py-1 rounded-md text-indigo-400 hover:bg-indigo-800 hover:text-white transition"
                     >
                       Expand
                     </motion.button>

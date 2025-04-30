@@ -1,5 +1,5 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
 import { Button } from "./ui/button";
 
 import {
@@ -13,25 +13,25 @@ import {
   Factory,
 } from "lucide-react";
 
-import Link from 'next/link'
+import Link from "next/link";
 
 import {
-    ClerkProvider,
-    SignInButton,
-    SignUpButton,
-    SignedIn,
-    SignedOut,
-    UserButton,
-  } from '@clerk/nextjs'
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 
-  import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-  } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
-import { checkUser } from '@/lib/checkUser';
+import { checkUser } from "@/lib/checkUser";
 
 const Header = async () => {
   await checkUser();
@@ -39,7 +39,7 @@ const Header = async () => {
     // <ClerkProvider>
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-      <Link href="/">
+        <Link href="/">
           {/* <Image
             src={"/edusenseLogo.png"}
             alt="EduSync"
@@ -47,7 +47,10 @@ const Header = async () => {
             height={60}
             className="h-14 py-1 w-auto object-contain "
           /> */}
-          <h1 className='text-xl font-extrabold b lg:3xl md:2xl xl:4xl gradient-title'>EduSync</h1>
+          <h1 className="text-2xl font-extrabold b lg:3xl md:2xl xl:4xl gradient-title">
+            {" "}
+            <span className="text-purple-500 ">Edu</span>Sync
+          </h1>
         </Link>
 
         {/* Action Buttons */}
@@ -69,7 +72,7 @@ const Header = async () => {
             {/* Growth Tools Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button className="flex items-center gap-2" >
+                <Button className="flex items-center gap-2">
                   <StarsIcon className="h-4 w-4" />
                   <span className="hidden md:block">Growth Tools</span>
                   <ChevronDown className="h-4 w-4" />
@@ -128,14 +131,14 @@ const Header = async () => {
                   userPreviewMainIdentifier: "font-semibold",
                 },
               }}
-            //   afterSignOutUrl="/"
+              //   afterSignOutUrl="/"
             />
           </SignedIn>
         </div>
       </nav>
     </header>
     // </ClerkProvider>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
