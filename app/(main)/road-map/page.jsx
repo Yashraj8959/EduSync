@@ -49,8 +49,9 @@ export default function CoverLetterPage() {
 
             {/* Dark-themed Button */}
             <Button
+            variant="custom"
               onClick={handleGenerate}
-              className="flex items-center px-6 py-2 bg-purple-600 text-white rounded-lg shadow-lg hover:bg-purple-700 focus:ring-4 focus:ring-purple-500"
+              // className="flex items-center px-6 py-2 bg-purple-600 text-white rounded-lg shadow-lg hover:bg-purple-700 focus:ring-4 focus:ring-purple-500"
             >
               <Plus className="h-5 w-5 mr-2" />
               Create New
