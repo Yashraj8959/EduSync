@@ -33,7 +33,7 @@ export default function CoverLetterPage() {
     <div className="min-h-screen py-10 px-5 sm:px-10 text-white">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row gap-5 items-center justify-between mb-8">
-          <h1 className="text-4xl font-extrabold text-transparent bg-gradient-to-r from-blue-400 to-indigo-600 bg-clip-text">
+          <h1 className="text-5xl font-extrabold text-transparent gradient-title  bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text">
             RoadMap Generator
           </h1>
 
@@ -44,13 +44,13 @@ export default function CoverLetterPage() {
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
               placeholder="Enter Topic (e.g., HTML, Python)"
-              className="input input-bordered input-primary w-full sm:w-64 px-4 py-2 rounded-lg shadow-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="input input-bordered input-primary w-full sm:w-64 px-4 py-2 rounded-lg shadow-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
 
             {/* Dark-themed Button */}
             <Button
               onClick={handleGenerate}
-              className="flex items-center px-6 py-2 bg-indigo-600 text-white rounded-lg shadow-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-500"
+              className="flex items-center px-6 py-2 bg-purple-600 text-white rounded-lg shadow-lg hover:bg-purple-700 focus:ring-4 focus:ring-purple-500"
             >
               <Plus className="h-5 w-5 mr-2" />
               Create New
@@ -62,7 +62,7 @@ export default function CoverLetterPage() {
         {loading ? (
           <div className="text-center text-gray-500 mt-10">
             <p className="text-lg">Loading...</p>
-            <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-indigo-500 mx-auto mt-4"></div> {/* Simple spinner */}
+            <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-purple-500 mx-auto mt-4"></div> {/* Simple spinner */}
           </div>
         ) : roadmapData.length > 0 ? (
           <RoadmapComponent roadmapData={roadmapData} />
