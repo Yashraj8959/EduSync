@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -105,7 +106,10 @@ export default function Quiz() {
   };
 
   if (generatingQuiz) {
-    return <BarLoader className="mt-4" width={"100%"} color="gray" />;
+    return <div className="text-center text-gray-500 align-middle min-h-screen flex flex-col justify-center items-center">
+    <p className="text-lg">Generating Your Personalized Quizzes...</p>
+    <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-indigo-500 mx-auto mt-4"></div> {/* Simple spinner */}
+  </div>
   }
 
   // Show results if quiz is completed
@@ -208,7 +212,7 @@ export default function Quiz() {
           className="ml-auto"
         >
           {savingResult && (
-            <BarLoader className="mt-4" width={"100%"} color="gray" />
+            <Loader2 className="animate-spin " width={"100%"} color="gray" />
           )}
           {currentQuestion < quizData.length - 1
             ? "Next Question"
