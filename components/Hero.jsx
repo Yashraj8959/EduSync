@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import robotImg from "../public/robot.png";
 import AnimatedIllustration from "./AnimatedIllustration";
 import { custom } from "zod";
 const HeroSection = () => {
@@ -58,8 +57,8 @@ const HeroSection = () => {
         <div className="hero-image-wrapper mt-3 md:mt-0 flex items-center justify-center">
           <div ref={imageRef} className="hero-image">
             <Image
-              src={robotImg}
-              alt="Dashboard Preview"
+              src={"/robot.png"}
+              alt="AI Robot"
               width={500}
               height={200}
               className="rounded-lg shadow-2xl b mx-auto"
