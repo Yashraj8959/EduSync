@@ -180,7 +180,7 @@ export default function Home() {
       <section className="w-full bg-muted/50 ">
         <div className="mx-auto py-24 rounded-lg backdrop-blur-lg bg-opacity-30">
           <div className="flex flex-col items-center justify-center space-y-4 text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tighter text-purple-600 sm:text-4xl md:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tighter gradient-title sm:text-4xl md:text-5xl">
               Ready to Accelerate Your Knowledge? {/* Lighter purple for heading */}
             </h2>
             <p className="mx-auto max-w-[600px] text-white/90 md:text-xl">

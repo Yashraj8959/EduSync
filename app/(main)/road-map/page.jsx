@@ -60,7 +60,7 @@ export default function CoverLetterPage() {
 
         {/* Conditional rendering for roadmap data */}
         {loading ? (
-          <div className="text-center text-gray-500 mt-10">
+          <div className="text-center text-gray-500 mt-20">
             <p className="text-lg">Loading...</p>
             <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-purple-500 mx-auto mt-4"></div> {/* Simple spinner */}
           </div>
