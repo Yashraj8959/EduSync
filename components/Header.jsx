@@ -11,6 +11,7 @@ import {
   StarsIcon,
   Route,
   Factory,
+  BookOpenCheck,
 } from "lucide-react";
 
 import Link from "next/link";
@@ -103,7 +104,13 @@ const Header = async () => {
                 <DropdownMenuItem asChild>
                   <Link href="/interview" className="flex items-center gap-2">
                     <GraduationCap className="h-4 w-4" />
-                    Interview Prep
+                    Smart Prepration
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="https://prepwise-sigma-vert.vercel.app/" className="flex items-center gap-2">
+                    <BookOpenCheck className="h-4 w-4" />
+                    Mock Interviews
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
